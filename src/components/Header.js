@@ -23,28 +23,12 @@ export default class Header extends Component {
       gender : "Female",
       group : "FlaskPro"
     }
-
-    // this.state = {
-    //   isHiddenAssignment: true,
-    //   isHiddenResources: true
-    // }
   }
-  // toggleHiddenAssignment () {
-  //   this.setState({
-  //     isHiddenAssignment: !this.state.isHiddenAssignment
-  //   })
-  // }
-  // toggleHiddenResources () {
-  //   this.setState({
-  //     isHiddenResources: !this.state.isHiddenResources
-  //   })
-  // }
 
-toggled = (ev) =>{
-this.props.clickMe()
+toggled (chart) {
+  console.log(chart)
+this.props.clickMe(chart)
 }
-
-
     render() {
         return (
       <React.Fragment>
@@ -61,27 +45,20 @@ this.props.clickMe()
           <div className="collapse navbar-collapse align-middle" id="navCollapse">
               <ul className="navbar-nav ml-auto">
                 <li className="nav-item mt-1">
-                  <Link to="#" onClick={this.toggled}>
-                  {/* <Link to="#" onClick={()  => this.props.toggleHiddenAssignment}> */}
-                  {/* <Link to="/Myassignment"> */}
-
-                    <h6 id="myassignment" className="text-muted mt-3 mx-2">   Assignment Progress </h6>
+                  <Link to="#" onClick={()  => this.toggled('chart1')}>
+                     <h6 id="myassignment" className="text-muted mt-3 mx-2">   Assignment Progress </h6>
                   </Link>
-
                 </li>
-                <li className="nav-item mt-1">
-                  {/* <button  onClick={this.toggled}>toggle</button> */}
-                  <Link to="resources" onClick={this.toggled}>
-                  {/* <Link to="resources" onClick={this.props.toggleHiddenResources}> */}
-                  {/* <Chart isHiddenResources={this.state.isHiddenResources} /> */}
-                  {/* <Link to="resources"> */}
+
+                <li className="nav-item mt-1">                 
+                  <Link to="#" onClick={()  => this.toggled('chart2')}>
                     <h6 id="myresource" className="text-muted mt-3 mx-2"> Resources Usage</h6>
                   </Link>
                 </li>
                 <Switch>
                   <Route exact path="/Myassignment">
-
-
+                  </Route>
+                  <Route exact path="/Myresources">
                   </Route>
                 </Switch>
 
